@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+nosetests.xml
+pylintrc
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.project
+.pydevproject
+.settings/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ML Weights & Large Binary Files
+*.pt
+*.pth
+*.onnx
+*.engine
+*.pb
+*.weights
+*.h5
+
+# Local Datasets & Raw Outputs
+datasets/
+healthy_dataset_yolo/
+plantseg_tcg_yolo_v1/
+plantseg_tcg_yolo_v2/
+plantseg_tcg_yolo_v3/
+generated_masks/
+overlay_visualizations/
+review/
+scripts/
+
+# Local Reports & Dynamic Files
+reports/
+*.log
