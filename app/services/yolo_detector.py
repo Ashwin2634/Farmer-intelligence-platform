@@ -7,7 +7,7 @@ import time
 class YOLODetector:
     def __init__(
         self,
-        model_path: str = "models/trained/best_v1.pt",
+        model_path: str = "models/trained/best_v3.1.pt",
         confidence: float = 0.5,
     ):
         self.model = YOLO(model_path)

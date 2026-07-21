@@ -5,7 +5,7 @@ Tomato : 7 diseases
 Cucumber : 3 diseases
 Grape : 4 diseases
 
------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
 best_v2.pt
 This model is trained on 6 crops : Tomato, Cucumber, Grape, Banana, Corn.
 It contains following diseases for each crop:
@@ -16,8 +16,21 @@ Banana : 6 diseases
 Corn : 4 diseases
 Soybean : 6 diseases
 
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------
 best_v3.pt
 This model is trained on 3 crops: Tomato, Cucumber, Grape.
 Healthy images are addde in this model for following crops.
 The diseases are same as v1, it was fined tuned over model best_v1.pt.
+This model is not working properly and biased towards healthy images and not detecting diseased images at all
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+best_v3_1.pt
+This model is experimental model before v4, it makes the negatively trained on healthy images,
+instead of looking for mask it looks if there is no lesion then it is healthy image.
+This is only a test model to confirm if we need to move to full version v4 of this model.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+best_v4.pt (testing pending)
+This model works on both healthy and diseased for 3 crops.
+It is trained on negative data to detect healthy crops
