@@ -1,0 +1,23 @@
+best_v1.pt
+This model is trained on 3 crops : Tomato, Cucumber, Grape.
+It contains following diseases for each crop:
+Tomato : 7 diseases
+Cucumber : 3 diseases
+Grape : 4 diseases
+
+-----------------------------------------------------------------------------------
+best_v2.pt
+This model is trained on 6 crops : Tomato, Cucumber, Grape, Banana, Corn.
+It contains following diseases for each crop:
+Tomato : 7 diseases
+Cucumber : 3 diseases
+Grape : 4 diseases
+Banana : 6 diseases
+Corn : 4 diseases
+Soybean : 6 diseases
+
+-------------------------------------------------------------------------------------
+best_v3.pt
+This model is trained on 3 crops: Tomato, Cucumber, Grape.
+Healthy images are addde in this model for following crops.
+The diseases are same as v1, it was fined tuned over model best_v1.pt.
