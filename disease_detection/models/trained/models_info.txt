@@ -19,7 +19,7 @@ Soybean : 6 diseases
 --------------------------------------------------------------------------------------------------------------------------------------------------
 best_v3.pt
 This model is trained on 3 crops: Tomato, Cucumber, Grape.
-Healthy images are addde in this model for following crops.
+Healthy images are added in this model for following crops.
 The diseases are same as v1, it was fined tuned over model best_v1.pt.
 This model is not working properly and biased towards healthy images and not detecting diseased images at all
 
@@ -31,6 +31,20 @@ instead of looking for mask it looks if there is no lesion then it is healthy im
 This is only a test model to confirm if we need to move to full version v4 of this model.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
-best_v4.pt (testing pending)
+best_v4.pt 
 This model works on both healthy and diseased for 3 crops.
 It is trained on negative data to detect healthy crops
+Working but giving errors and not accurate results with some crop.
+Accuracy is 75-80%
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+best_v4.1.pt
+Added few more images for diseases to increase the accuracy of disease prediction
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+best_v5.pt   
+Added chilli crop and chilli leaf spot disease
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+best_v5.1.pt
+Added chilli anthrancose disease images 
