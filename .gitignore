@@ -1,5 +1,5 @@
 # ==============================================================================
-# Python
+# Python & Virtual Environments
 # ==============================================================================
 __pycache__/
 *.pyc
@@ -16,17 +16,13 @@ pylintrc
 .eggs/
 dist/
 build/
-
-# ==============================================================================
-# Virtual Environments
-# ==============================================================================
 .venv/
 venv/
 ENV/
 env/
 
 # ==============================================================================
-# IDEs / Editors
+# IDEs / Editors & OS Files
 # ==============================================================================
 .vscode/
 .idea/
@@ -35,16 +31,13 @@ env/
 .project
 .pydevproject
 .settings/
-
-# ==============================================================================
-# OS Files
-# ==============================================================================
 .DS_Store
 Thumbs.db
 desktop.ini
+*.log
 
 # ==============================================================================
-# ML Model Weights (large binary files — store on cloud / GDrive / HuggingFace)
+# ML Model Artifacts & Heavy Binaries (Ignored everywhere)
 # ==============================================================================
 *.pt
 *.pth
@@ -53,38 +46,33 @@ desktop.ini
 *.pb
 *.weights
 *.h5
+*.pkl
+*.joblib
+*.sav
+*.npy
+*.npz
 
 # ==============================================================================
-# Disease Detection — Data & Artifacts (large / generated / local-only)
+# Disease Detection Module — Data & Generated Files
 # ==============================================================================
-
-# Training & raw datasets (too large for git)
 disease_detection/datasets/
 disease_detection/healthy_dataset_yolo/
 disease_detection/plantseg_raw_new/
-
-# Generated outputs
 disease_detection/generated_masks/
 disease_detection/overlay_visualizations/
-
-# Manual review images
 disease_detection/review/
-
-# Reports (auto-generated analysis files)
 disease_detection/reports/
-
-# Data processing scripts (one-off dataset build/clean utilities)
 disease_detection/scripts/
-
-# Throwaway / scratch scripts
 disease_detection/scratch/
-
-# Segmentation pipeline outputs & logs
+disease_detection/models/trained/*.pt
+disease_detection/models/pretrained/*.pt
 disease_detection/segmentation_pipeline/logs/
 disease_detection/segmentation_pipeline/output/
 disease_detection/segmentation_pipeline/notebooks/
 
 # ==============================================================================
-# Logs
+# Crop Recommendation Module — Datasets & Trained Models
 # ==============================================================================
-*.log
+crop_recommendation/datasets/
+crop_recommendation/models/*.pkl
+crop_recommendation/models/*.joblib

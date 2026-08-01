@@ -5,28 +5,39 @@ from crop_recommendation.router import router as crop_recommendation_router
 
 app = FastAPI(
     title="PolyHouse AI Service",
-    description="AI service for plant disease detection and crop recommendation",
+    description="""
+    AI Service for PolyHouse India
+
+    Modules:
+    • Plant Disease Detection
+    • Crop Recommendation
+    """,
     version="2.0.0",
 )
 
-# Mount module routers
+# Register Routers
 app.include_router(disease_detection_router)
 app.include_router(crop_recommendation_router)
 
 
-@app.get("/")
+@app.get("/", tags=["System"])
 def root():
     return {
         "message": "PolyHouse AI Service is running",
-        "modules": [
-            "disease-detection",
-            "crop-recommendation",
-        ],
+        "version": "2.0.0",
+        "status": "online",
+        "modules": {
+            "disease_detection": "/disease-detection",
+            "crop_recommendation": "/crop-recommendation",
+        },
+        "docs": "/docs",
     }
 
 
-@app.get("/health")
+@app.get("/health", tags=["System"])
 def health():
     return {
         "status": "healthy",
+        "service": "PolyHouse AI Service",
+        "version": "2.0.0",
     }
