@@ -15,7 +15,6 @@ class CropRecommendationRequest(BaseModel):
                 "temperature": 25,
                 "humidity": 82,
                 "ph": 6.5,
-                "rainfall": 150
             }
         }
     )
@@ -61,14 +60,6 @@ class CropRecommendationRequest(BaseModel):
         le=9.5,
         description="Soil pH"
     )
-
-    rainfall: float = Field(
-        ...,
-        ge=0,
-        le=1000,
-        description="Rainfall (mm)"
-    )
-
 
 class CropRecommendationItem(BaseModel):
     """

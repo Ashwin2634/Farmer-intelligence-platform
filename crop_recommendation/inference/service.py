@@ -10,7 +10,6 @@ FEATURE_ORDER = [
     "temperature",
     "humidity",
     "ph",
-    "rainfall",
 ]
 
 
@@ -24,7 +23,6 @@ def predict_crop(data):
             data.temperature,
             data.humidity,
             data.ph,
-            data.rainfall,
         ]],
         columns=FEATURE_ORDER,
     )
