@@ -63,14 +63,19 @@ async def detect_image(file: UploadFile = File(...)):
             key=lambda d: d.get("confidence", 0)
         )
 
+        crop_name = top_detection.get("crop", "")
+        disease_name = top_detection.get("disease", "")
+        diagnosis_str = f"{crop_name} - {disease_name}".strip(" -")
+
         return {
             "success": True,
             "filename": file.filename,
             "model": prediction.get("model", "YOLO11 Segmentation"),
+            "crop": crop_name,
             "image": prediction.get("image"),
             "inference_time_ms": prediction.get("inference_time_ms"),
             "status": "diseased",
-            "diagnosis": top_detection.get("class"),
+            "diagnosis": diagnosis_str or "Diseased",
             "confidence": round(top_detection.get("confidence", 0), 4),
             "total_detections": len(detections),
             "detections": detections,

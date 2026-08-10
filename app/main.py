@@ -1,18 +1,28 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from disease_detection.router import router as disease_detection_router
 from crop_recommendation.router import router as crop_recommendation_router
 
 app = FastAPI(
-    title="PolyHouse AI Service",
+    title="AlexxaFarms AI Service",
     description="""
-    AI Service for PolyHouse India
+    AI Service for AlexxaFarms
 
     Modules:
     • Plant Disease Detection
     • Crop Recommendation
     """,
     version="2.0.0",
+)
+
+# ── CORS — allow the local HTML frontend to call the API ──────────────────
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Register Routers
@@ -23,7 +33,7 @@ app.include_router(crop_recommendation_router)
 @app.get("/", tags=["System"])
 def root():
     return {
-        "message": "PolyHouse AI Service is running",
+        "message": "AlexxaFarms AI Service is running",
         "version": "2.0.0",
         "status": "online",
         "modules": {
@@ -38,6 +48,6 @@ def root():
 def health():
     return {
         "status": "healthy",
-        "service": "PolyHouse AI Service",
+        "service": "AlexxaFarms AI Service",
         "version": "2.0.0",
     }

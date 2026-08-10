@@ -1,0 +1,236 @@
+{
+  "tomato": {
+    "category": "vegetable",
+    "growth_days": 90,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "brinjal": {
+    "category": "vegetable",
+    "growth_days": 110,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "okra": {
+    "category": "vegetable",
+    "growth_days": 60,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "cucumber": {
+    "category": "vegetable",
+    "growth_days": 50,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "capsicum": {
+    "category": "vegetable",
+    "growth_days": 90,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "chilli": {
+    "category": "vegetable",
+    "growth_days": 80,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "cabbage": {
+    "category": "vegetable",
+    "growth_days": 85,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "cauliflower": {
+    "category": "vegetable",
+    "growth_days": 85,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "broccoli": {
+    "category": "vegetable",
+    "growth_days": 80,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "lettuce": {
+    "category": "vegetable",
+    "growth_days": 45,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "spinach": {
+    "category": "vegetable",
+    "growth_days": 40,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "kale": {
+    "category": "vegetable",
+    "growth_days": 55,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "zucchini": {
+    "category": "vegetable",
+    "growth_days": 55,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "muskmelon": {
+    "category": "fruit",
+    "growth_days": 85,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "papaya": {
+    "category": "fruit",
+    "growth_days": 270,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "strawberry": {
+    "category": "fruit",
+    "growth_days": 75,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "blueberry": {
+    "category": "fruit",
+    "growth_days": 120,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "raspberry": {
+    "category": "fruit",
+    "growth_days": 100,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "rose": {
+    "category": "flower",
+    "growth_days": 120,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "dutch_rose": {
+    "category": "flower",
+    "growth_days": 120,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "gerbera": {
+    "category": "flower",
+    "growth_days": 90,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "carnation": {
+    "category": "flower",
+    "growth_days": 110,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "lilium": {
+    "category": "flower",
+    "growth_days": 90,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "orchid": {
+    "category": "flower",
+    "growth_days": 180,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "chrysanthemum": {
+    "category": "flower",
+    "growth_days": 100,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "mint": {
+    "category": "herb",
+    "growth_days": 40,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "coriander": {
+    "category": "herb",
+    "growth_days": 35,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "watermelon": {
+    "category": "fruit",
+    "growth_days": 80,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "dragon_fruit": {
+    "category": "fruit",
+    "growth_days": 365,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "kiwifruit": {
+    "category": "fruit",
+    "growth_days": 150,
+    "difficulty": "hard",
+    "polyhouse": true
+  },
+  "blackberry": {
+    "category": "fruit",
+    "growth_days": 120,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "basil": {
+    "category": "herb",
+    "growth_days": 30,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "parsley": {
+    "category": "herb",
+    "growth_days": 70,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "celery": {
+    "category": "herb",
+    "growth_days": 90,
+    "difficulty": "medium",
+    "polyhouse": true
+  },
+  "dill": {
+    "category": "herb",
+    "growth_days": 40,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "chives": {
+    "category": "herb",
+    "growth_days": 30,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "oregano": {
+    "category": "herb",
+    "growth_days": 80,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "thyme": {
+    "category": "herb",
+    "growth_days": 75,
+    "difficulty": "easy",
+    "polyhouse": true
+  },
+  "rosemary": {
+    "category": "herb",
+    "growth_days": 90,
+    "difficulty": "medium",
+    "polyhouse": true
+  }
+}

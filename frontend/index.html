@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlexxaFarms — Smart Agriculture & AI Service</title>
+  <meta name="description" content="AlexxaFarms AI Service for Plant Disease Detection and Crop Recommendation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER / TOP NAV -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-title">
+          <span class="name-main">ALEXXA</span>
+          <span class="name-sub">FARMS</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="status-pill" id="api-status">
+          <span class="status-dot"></span> Checking API...
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- HERO / BANNER SUMMARY -->
+    <section class="overview-banner">
+      <div class="banner-content">
+        <span class="banner-tag">🌱 Smart Polyhouse Assistant</span>
+        <h1>AI Farm Intelligence</h1>
+        <p>Instantly diagnose plant leaf diseases and get precision crop recommendations tailored to your soil & environment.</p>
+      </div>
+    </section>
+
+    <!-- NAVIGATION TABS -->
+    <div class="tabs-nav">
+      <button type="button" class="tab-btn active" data-tab="disease">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Disease Detection
+      </button>
+      <button type="button" class="tab-btn" data-tab="crop">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Crop Recommendation
+      </button>
+    </div>
+
+    <!-- DISEASE DETECTION TAB PANEL -->
+    <div class="tab-panel active" id="panel-disease">
+      <div class="grid-layout">
+        
+        <!-- INPUT CARD -->
+        <div class="ui-card">
+          <div class="card-head">
+            <h3>Leaf Inspection</h3>
+            <span class="sub-text">Upload or drop a crop leaf photo</span>
+          </div>
+
+          <div class="dropzone" id="dropzone" tabindex="0" role="button">
+            <input type="file" id="file-input" accept="image/*" hidden />
+            <div class="dropzone-body" id="dropzone-body">
+              <div class="upload-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              </div>
+              <p class="drop-title">Select from gallery or drag & drop</p>
+              <p class="drop-hint">Supports JPG, PNG, WEBP</p>
+              <button class="btn btn-outline" type="button" id="browse-btn">Browse File</button>
+            </div>
+
+            <div class="preview-box hidden" id="preview-box">
+              <img id="preview-img" alt="Leaf Preview" />
+              <button type="button" class="remove-btn" id="clear-btn" title="Remove image">✕</button>
+            </div>
+          </div>
+
+          <div class="file-meta hidden" id="file-meta">
+            <span class="file-icon">📷</span>
+            <span class="file-name" id="file-name"></span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-block" id="detect-btn" disabled>
+            <span id="detect-btn-text">Run Disease Diagnosis</span>
+            <span class="spinner hidden" id="detect-spinner"></span>
+          </button>
+        </div>
+
+        <!-- RESULT CARD -->
+        <div class="ui-card">
+          <div class="card-head">
+            <h3>Diagnosis Report</h3>
+            <span class="sub-text">AI inference results</span>
+          </div>
+
+          <div class="placeholder-state" id="disease-empty">
+            <div class="placeholder-icon">🔍</div>
+            <p>Upload a leaf image to generate a detailed disease diagnosis report.</p>
+          </div>
+
+          <div class="report-content hidden" id="disease-result"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CROP RECOMMENDATION TAB PANEL -->
+    <div class="tab-panel" id="panel-crop">
+      <div class="grid-layout">
+
+        <!-- INPUT FORM CARD -->
+        <div class="ui-card">
+          <div class="card-head">
+            <h3>Soil & Environmental Parameters</h3>
+            <span class="sub-text">Enter test values for tailored recommendations</span>
+          </div>
+
+          <form id="crop-form" novalidate>
+            
+            <div class="form-group">
+              <label class="input-label">Target Category (Optional)</label>
+              <div class="category-pills">
+                <button type="button" class="pill active" data-value="">All</button>
+                <button type="button" class="pill" data-value="vegetable">Vegetable</button>
+                <button type="button" class="pill" data-value="fruit">Fruit</button>
+                <button type="button" class="pill" data-value="flower">Flower</button>
+                <button type="button" class="pill" data-value="herb">Herb</button>
+              </div>
+              <input type="hidden" id="category" name="category" value="" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nitrogen" class="input-label">Nitrogen (N) <span class="unit">kg/ha</span></label>
+                <input type="number" id="nitrogen" class="form-input" placeholder="e.g. 90" min="0" max="500" step="0.1" required />
+              </div>
+              <div class="form-group">
+                <label for="phosphorus" class="input-label">Phosphorus (P) <span class="unit">kg/ha</span></label>
+                <input type="number" id="phosphorus" class="form-input" placeholder="e.g. 42" min="0" max="300" step="0.1" required />
+              </div>
+              <div class="form-group">
+                <label for="potassium" class="input-label">Potassium (K) <span class="unit">kg/ha</span></label>
+                <input type="number" id="potassium" class="form-input" placeholder="e.g. 43" min="0" max="500" step="0.1" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="temperature" class="input-label">Temperature <span class="unit">°C</span></label>
+                <input type="number" id="temperature" class="form-input" placeholder="e.g. 25" min="5" max="50" step="0.1" required />
+              </div>
+              <div class="form-group">
+                <label for="humidity" class="input-label">Humidity <span class="unit">%</span></label>
+                <input type="number" id="humidity" class="form-input" placeholder="e.g. 82" min="0" max="100" step="0.1" required />
+              </div>
+              <div class="form-group">
+                <label for="ph" class="input-label">Soil pH</label>
+                <input type="number" id="ph" class="form-input" placeholder="e.g. 6.5" min="3.5" max="9.5" step="0.01" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="recommend-btn">
+              <span id="recommend-btn-text">Predict Optimal Crops</span>
+              <span class="spinner hidden" id="recommend-spinner"></span>
+            </button>
+          </form>
+        </div>
+
+        <!-- RECOMMENDATION RESULTS CARD -->
+        <div class="ui-card">
+          <div class="card-head">
+            <h3>Top Recommendations</h3>
+            <span class="sub-text">Recommended crops for optimal yield</span>
+          </div>
+
+          <div class="placeholder-state" id="crop-empty">
+            <div class="placeholder-icon">🌾</div>
+            <p>Enter your soil NPK & climate parameters to view top crop recommendations.</p>
+          </div>
+
+          <div class="report-content hidden" id="crop-result"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 AlexxaFarms · Polyhouse Intelligence Platform</p>
+  </footer>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

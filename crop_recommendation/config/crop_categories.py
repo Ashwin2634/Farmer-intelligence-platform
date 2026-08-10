@@ -1,0 +1,32 @@
+CROP_CATEGORY = {
+    "tomato": "vegetable",
+    "brinjal": "vegetable",
+    "okra": "vegetable",
+    "cucumber": "vegetable",
+    "capsicum": "vegetable",
+    "chilli": "vegetable",
+    "cabbage": "vegetable",
+    "cauliflower": "vegetable",
+    "broccoli": "vegetable",
+    "lettuce": "vegetable",
+    "spinach": "vegetable",
+    "kale": "vegetable",
+    "zucchini": "vegetable",
+
+    "muskmelon": "fruit",
+    "papaya": "fruit",
+    "strawberry": "fruit",
+    "blueberry": "fruit",
+    "raspberry": "fruit",
+
+    "rose": "flower",
+    "dutch_rose": "flower",
+    "gerbera": "flower",
+    "carnation": "flower",
+    "lilium": "flower",
+    "orchid": "flower",
+    "chrysanthemum": "flower",
+
+    "mint": "herb",
+    "coriander": "herb",
+}
