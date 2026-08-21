@@ -48,3 +48,8 @@ Added chilli crop and chilli leaf spot disease
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 best_v5.1.pt
 Added chilli anthrancose disease images 
+
+
+best_v6.pt
+Added squash diseases
+

@@ -2,9 +2,27 @@
 # Python & Virtual Environments
 # ==============================================================================
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 .ipynb_checkpoints/
 .pytest_cache/
 .tox/
@@ -12,22 +30,21 @@ __pycache__/
 htmlcov/
 nosetests.xml
 pylintrc
-*.egg-info/
-.eggs/
-dist/
-build/
 .venv/
 venv/
 ENV/
 env/
+env.bak/
+venv.bak/
 
 # ==============================================================================
-# IDEs / Editors & OS Files
+# IDEs, Editors & OS Files
 # ==============================================================================
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 .project
 .pydevproject
 .settings/
@@ -37,7 +54,16 @@ desktop.ini
 *.log
 
 # ==============================================================================
-# ML Model Artifacts & Heavy Binaries (Ignored everywhere)
+# Environment & Secrets
+# ==============================================================================
+.env
+.env.local
+.env.*.local
+*.secrets
+
+# ==============================================================================
+# Heavy ML Model Weights & Binary Artifacts (>50MB / Binaries)
+# Note: Host model weights externally (e.g. Hugging Face, S3, GDrive, GitHub Releases)
 # ==============================================================================
 *.pt
 *.pth
@@ -52,27 +78,39 @@ desktop.ini
 *.npy
 *.npz
 
+# Keep repository folder skeletons intact
+!.gitkeep
+
 # ==============================================================================
-# Disease Detection Module — Data & Generated Files
+# Disease Detection Module — Datasets & Heavy Artifacts
 # ==============================================================================
 disease_detection/datasets/
-disease_detection/healthy_dataset_yolo/
-disease_detection/plantseg_raw_new/
+disease_detection/healthy_dataset_*/
+disease_detection/plantseg_*/
+disease_detection/turmeric_*/
 disease_detection/generated_masks/
 disease_detection/overlay_visualizations/
 disease_detection/review/
 disease_detection/reports/
-disease_detection/scripts/
 disease_detection/scratch/
-disease_detection/models/trained/*.pt
-disease_detection/models/pretrained/*.pt
+disease_detection/runs/
 disease_detection/segmentation_pipeline/logs/
 disease_detection/segmentation_pipeline/output/
 disease_detection/segmentation_pipeline/notebooks/
+runs/
 
 # ==============================================================================
-# Crop Recommendation Module — Datasets & Trained Models
+# Crop Recommendation Module — Datasets & Raw Outputs
 # ==============================================================================
 crop_recommendation/datasets/
-crop_recommendation/models/*.pkl
-crop_recommendation/models/*.joblib
+crop_recommendation/runs/
+crop_recommendation/scratch/
+
+# ==============================================================================
+# Temporary Archives & Data Dumps
+# ==============================================================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z

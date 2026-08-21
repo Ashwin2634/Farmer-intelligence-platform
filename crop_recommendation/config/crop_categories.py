@@ -26,6 +26,7 @@ CROP_CATEGORY = {
     "lilium": "flower",
     "orchid": "flower",
     "chrysanthemum": "flower",
+    "anthurium":"flower",
 
     "mint": "herb",
     "coriander": "herb",
