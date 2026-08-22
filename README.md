@@ -141,17 +141,14 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 4. Model Weights Placement
-Because binary model files are excluded from Git:
-- **Disease Detection Model**: Place your trained YOLOv11 model weights (e.g. `best_v6.pt`) at:
-  ```text
-  disease_detection/models/trained/best_v6.pt
-  ```
-- **Crop Recommendation Model**: Place your trained Random Forest model and label encoder at:
-  ```text
-  crop_recommendation/models/random_forest/rf_crop_model_v7.1.pkl
-  crop_recommendation/models/random_forest/label_encoder_v7.1.pkl
-  ```
+### 4. Model Weights Placement & Downloads
+Because binary model files are excluded from Git, download the trained models from the links below and place them in their respective directories:
+
+| Model / Asset | Target Destination Path | Download Link |
+| :--- | :--- | :--- |
+| **Label Encoder** | `crop_recommendation/models/random_forest/label_encoder_v7.1.pkl` | [Download from Google Drive](https://drive.google.com/file/d/1uFcuDG5dLsIGV5jzud6PsW23bumS7UOW/view?usp=sharing) |
+| **Random Forest Crop Model** | `crop_recommendation/models/random_forest/rf_crop_model_v7.1.pkl` | [Download from Google Drive](https://drive.google.com/file/d/10zAb8bSOT_z05A7jvEChqexTl2iK6RHw/view?usp=sharing) |
+| **Disease Detection Model** | `disease_detection/models/trained/best_v6.pt` | [Download from Google Drive](https://drive.google.com/file/d/1n39dus-hOZwfYA-izXHCmz7Tsj9f_4aH/view?usp=sharing) |
 
 ### 5. Launch the API Server
 
