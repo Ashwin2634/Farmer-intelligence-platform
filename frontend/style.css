@@ -712,3 +712,102 @@ body {
 .hidden {
   display: none !important;
 }
+
+.treatment-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+}
+
+.treatment-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.treatment-card .lbl {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.treatment-card .val {
+  font-size: 0.95rem;
+  color: #1e293b;
+}
+
+.treatment-card ul {
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* ── VIDEO SUPPORT ───────────────────────────────────────────────────────── */
+.preview-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+  display: block;
+}
+
+.remove-btn {
+  z-index: 2;
+}
+
+.video-options {
+  margin-bottom: 0.875rem;
+}
+
+.video-options select {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.warning-box {
+  margin-top: 0.75rem;
+  padding: 10px 12px;
+  background: #FFF7ED;
+  border: 1px solid #FDBA74;
+  border-radius: var(--radius-sm);
+  color: #9A3412;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.dist-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  font-size: 0.8125rem;
+}
+
+.dist-label {
+  color: var(--color-text-main);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dist-bar {
+  height: 8px;
+  background: var(--bg-pill);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.dist-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 99px;
+}
+
+.dist-pct {
+  text-align: right;
+  color: var(--color-text-sub);
+  font-weight: 700;
+}

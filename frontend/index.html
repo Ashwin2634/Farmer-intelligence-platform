@@ -64,29 +64,39 @@
         <div class="ui-card">
           <div class="card-head">
             <h3>Leaf Inspection</h3>
-            <span class="sub-text">Upload or drop a crop leaf photo</span>
+            <span class="sub-text">Upload or drop a crop leaf photo or video</span>
           </div>
 
           <div class="dropzone" id="dropzone" tabindex="0" role="button">
-            <input type="file" id="file-input" accept="image/*" hidden />
+            <input type="file" id="file-input" accept="image/*,video/*" hidden />
             <div class="dropzone-body" id="dropzone-body">
               <div class="upload-icon">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
               </div>
               <p class="drop-title">Select from gallery or drag & drop</p>
-              <p class="drop-hint">Supports JPG, PNG, WEBP</p>
+              <p class="drop-hint">Photos: JPG, PNG, WEBP &nbsp;·&nbsp; Videos: MP4, MOV, WEBM (up to 60 s / 100 MB)</p>
               <button class="btn btn-outline" type="button" id="browse-btn">Browse File</button>
             </div>
 
             <div class="preview-box hidden" id="preview-box">
               <img id="preview-img" alt="Leaf Preview" />
-              <button type="button" class="remove-btn" id="clear-btn" title="Remove image">✕</button>
+              <video id="preview-video" class="hidden" controls muted playsinline></video>
+              <button type="button" class="remove-btn" id="clear-btn" title="Remove file">✕</button>
             </div>
           </div>
 
           <div class="file-meta hidden" id="file-meta">
-            <span class="file-icon">📷</span>
+            <span class="file-icon" id="file-icon">📷</span>
             <span class="file-name" id="file-name"></span>
+          </div>
+
+          <div class="video-options hidden" id="video-options">
+            <label for="num-frames" class="input-label">Video analysis detail</label>
+            <select id="num-frames" class="form-input">
+              <option value="8">Quick (8 frames)</option>
+              <option value="16" selected>Balanced (16 frames)</option>
+              <option value="32">Thorough (32 frames)</option>
+            </select>
           </div>
 
           <button type="button" class="btn btn-primary btn-block" id="detect-btn" disabled>
@@ -104,7 +114,7 @@
 
           <div class="placeholder-state" id="disease-empty">
             <div class="placeholder-icon">🔍</div>
-            <p>Upload a leaf image to generate a detailed disease diagnosis report.</p>
+            <p>Upload a leaf image or video to generate a detailed disease diagnosis report.</p>
           </div>
 
           <div class="report-content hidden" id="disease-result"></div>
@@ -204,4 +214,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
