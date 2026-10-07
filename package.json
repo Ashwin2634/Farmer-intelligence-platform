@@ -1,0 +1,20 @@
+{
+  "name": "disease_prediction_for_polyhouses",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "roxx": "start cmd /k \"cd backend && pip install -r requirements.txt && gdown 1ctbFGqmacMb6Xy72fsh99oiRnt0e0-UB && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload\" && cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samprakshiinfinitysolution/ai-model.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samprakshiinfinitysolution/ai-model/issues"
+  },
+  "homepage": "https://github.com/samprakshiinfinitysolution/ai-model#readme",
+  "description": ""
+}

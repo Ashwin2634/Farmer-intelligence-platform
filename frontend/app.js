@@ -2,8 +2,10 @@
    AlexxaFarms — Frontend Logic
    Handles Tabs, Drag & Drop, Validation, and FastAPI Endpoints Integration
 ───────────────────────────────────────────────────────────────────────────── */
+const base_url = window.location.hostname;
 
-const API_BASE = 'http://192.168.1.3:8000';
+// const API_BASE = `http://${process.env.API_HOST || "localhost"}:8000`;
+const API_BASE = `http://${base_url}:8000`;
 
 // ── DOM References ─────────────────────────────────────────────────────────
 const apiStatusEl   = document.getElementById('api-status');
