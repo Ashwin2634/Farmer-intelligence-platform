@@ -17,7 +17,6 @@ from pathlib import Path
 # Base directory = folder where this script lives
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 class EfficientNetDetector:
     def __init__(
         self,

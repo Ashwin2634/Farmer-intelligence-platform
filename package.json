@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "roxx": "start cmd /k \"cd backend && pip install -r requirements.txt && gdown 1ctbFGqmacMb6Xy72fsh99oiRnt0e0-UB && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload\" && cd frontend && npm start"
+    "roxx": "start cmd /k \"cd backend && pip install -r requirements.txt &&  uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload\" && cd frontend && npm start"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
     "url": "https://github.com/samprakshiinfinitysolution/ai-model/issues"
   },
   "homepage": "https://github.com/samprakshiinfinitysolution/ai-model#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dotenv": "^18.0.6"
+  }
 }
