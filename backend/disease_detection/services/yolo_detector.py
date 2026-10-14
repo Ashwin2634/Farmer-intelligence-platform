@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 class EfficientNetDetector:
     def __init__(
         self,
-        model_path: str = str(BASE_DIR / "models" / "trained" / "V2.5.1_effnetv2_m.pth"),
+        model_path: str = str(BASE_DIR / "models" / "trained" / "V3.0_best_baseline.pth"),
         class_names_path: str = str(BASE_DIR / "models" / "trained" / "class_names.txt"),
         device: str = None,
         confidence_threshold: float = 0.0,
