@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 class EfficientNetDetector:
     def __init__(
         self,
-        model_path: str = str(BASE_DIR / "models" / "trained" / "V2.1_EfficientNetV2-M_best.pth"),
+        model_path: str = str(BASE_DIR / "models" / "trained" / "V2.5.1_effnetv2_m.pth"),
         class_names_path: str = str(BASE_DIR / "models" / "trained" / "class_names.txt"),
         device: str = None,
-        confidence_threshold: float = 0.51,
+        confidence_threshold: float = 0.0,
     ):
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.kb = KnowledgeBase()

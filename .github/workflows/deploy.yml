@@ -1,0 +1,77 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -e
+
+            TIMESTAMP=$(date +%Y%m%d-%H%M%S)
+            APP_DIR="/home/ubuntu/app-$TIMESTAMP"
+
+            echo "Creating new deployment folder: $APP_DIR"
+            mkdir -p $APP_DIR
+            cd $APP_DIR
+
+            # Clone the repository
+            git clone https://github.com/Ashwin2634/Farmer-intelligence-platform.git .
+
+            # ====================== FRONTEND ======================
+            echo "Setting up Frontend..."
+            cd $APP_DIR/frontend
+            npm install
+
+            # ====================== BACKEND ======================
+            echo "Setting up Backend..."
+            cd $APP_DIR/backend
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
+
+            # Download ML model (keeps original filename)
+            echo "Downloading ML model..."
+            mkdir -p $APP_DIR/backend/disease_detection/models/trained
+            cd $APP_DIR/backend/disease_detection/models/trained
+            gdown ${{ secrets.GDRIVE_FILE_ID }}
+
+            # ====================== PM2 ======================
+            echo "Restarting PM2 processes..."
+
+            pm2 delete frontend || true
+            pm2 delete backend || true
+
+            # Start Frontend
+            cd $APP_DIR/frontend
+            pm2 start server.js --name "frontend"
+
+            # Start Backend
+            cd $APP_DIR/backend
+            pm2 start "uvicorn app.main:app --host 0.0.0.0 --port 8000" \
+              --name "backend" \
+              --interpreter $APP_DIR/backend/venv/bin/python
+
+            pm2 save
+
+            echo "========================================="
+            echo "Deployment successful!"
+            echo "App folder → $APP_DIR"
+            echo "Frontend  → pm2 name: frontend"
+            echo "Backend   → pm2 name: backend"
+            echo "========================================="
+
+            # Keep only last 5 deployments
+            cd /home/ubuntu
+            ls -dt app-* | tail -n +6 | xargs -r rm -rf

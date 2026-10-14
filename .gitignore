@@ -3,3 +3,5 @@ node_modules
 // "roxx": "start cmd /k \"cd backend && pip install -r requirements.txt && gdown 1ctbFGqmacMb6Xy72fsh99oiRnt0e0-UB && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload\" && cd frontend && npm start"
 scripts
 segmentation_pipeline
+.env
+V2.5.1_effnetv2_m.pth
