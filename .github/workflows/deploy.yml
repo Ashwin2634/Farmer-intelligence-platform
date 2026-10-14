@@ -1,5 +1,5 @@
 name: Deploy to EC2
-# 
+
 on:
   push:
     branches: [ main ]
@@ -41,32 +41,51 @@ jobs:
             pip install --upgrade pip
             pip install -r requirements.txt
 
-            # Download ML model (keeps original filename)
+            # Download ML model
             echo "Downloading ML model..."
             mkdir -p $APP_DIR/backend/disease_detection/models/trained
             cd $APP_DIR/backend/disease_detection/models/trained
             gdown ${{ secrets.GDRIVE_FILE_ID }}
 
+            # ====================== CREATE ecosystem.config.js ======================
+            echo "Creating ecosystem.config.js..."
+            cat > $APP_DIR/ecosystem.config.js << EOF
+            module.exports = {
+              apps: [
+                {
+                  name: "frontend",
+                  script: "server.js",
+                  cwd: "$APP_DIR/frontend",
+                  instances: 1,
+                  autorestart: true,
+                  watch: false,
+                  max_memory_restart: "500M"
+                },
+                {
+                  name: "backend",
+                  script: "$APP_DIR/backend/venv/bin/uvicorn",
+                  args: "app.main:app --host 0.0.0.0 --port 8000 --workers 2",
+                  cwd: "$APP_DIR/backend",
+                  interpreter: "none",
+                  instances: 1,
+                  exec_mode: "fork",
+                  autorestart: true,
+                  watch: false,
+                  max_memory_restart: "1G"
+                }
+              ]
+            };
+            EOF
+
             # ====================== PM2 ======================
-            echo "Stopping and deleting ALL existing PM2 processes..."
-            
-            # Kill everything
+            echo "Stopping all existing PM2 processes..."
             pm2 delete all || true
             pm2 flush || true
 
-            # Start Frontend
-            echo "Starting Frontend..."
-            cd $APP_DIR/frontend
-            pm2 start server.js --name "frontend"
+            echo "Starting apps with ecosystem.config.js..."
+            cd $APP_DIR
+            pm2 start ecosystem.config.js
 
-            # Start Backend
-            echo "Starting Backend..."
-            cd $APP_DIR/backend
-            pm2 start "uvicorn app.main:app --host 0.0.0.0 --port 8000" \
-              --name "backend" \
-              --interpreter $APP_DIR/backend/venv/bin/python
-
-            # Save the process list
             pm2 save
 
             echo "========================================="
@@ -76,6 +95,6 @@ jobs:
             echo "Backend   → pm2 name: backend"
             echo "========================================="
 
-            # Keep only last 5 deployments
+            # Keep only last 3 deployments to save space
             cd /home/ubuntu
-            ls -dt app-* | tail -n +6 | xargs -r rm -rf
+            ls -dt app-* | tail -n +4 | xargs -r rm -rf
