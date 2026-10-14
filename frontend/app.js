@@ -5,7 +5,8 @@
 const base_url = ()=>window.location.hostname;
 
 // const API_BASE = `http://${process.env.API_HOST || "localhost"}:8000`;
-const API_BASE = `http://${base_url()}:8000`;
+// const API_BASE = `http://${base_url()}:8000`;
+const API_BASE = "/api"; 
 
 // ── DOM References ─────────────────────────────────────────────────────────
 const apiStatusEl   = document.getElementById('api-status');
