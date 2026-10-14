@@ -64,7 +64,7 @@ jobs:
                 {
                   name: "backend",
                   script: "$APP_DIR/backend/venv/bin/uvicorn",
-                  args: "app.main:app --host 0.0.0.0 --port 8000 --workers 2",
+                  args: "app.main:app --host 0.0.0.0 --port 8000 --workers 1",   // ← changed to 1
                   cwd: "$APP_DIR/backend",
                   interpreter: "none",
                   instances: 1,
