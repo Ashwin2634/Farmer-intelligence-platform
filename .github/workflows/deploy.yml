@@ -48,21 +48,25 @@ jobs:
             gdown ${{ secrets.GDRIVE_FILE_ID }}
 
             # ====================== PM2 ======================
-            echo "Restarting PM2 processes..."
-
-            pm2 delete frontend || true
-            pm2 delete backend || true
+            echo "Stopping and deleting ALL existing PM2 processes..."
+            
+            # Kill everything
+            pm2 delete all || true
+            pm2 flush || true
 
             # Start Frontend
+            echo "Starting Frontend..."
             cd $APP_DIR/frontend
             pm2 start server.js --name "frontend"
 
             # Start Backend
+            echo "Starting Backend..."
             cd $APP_DIR/backend
             pm2 start "uvicorn app.main:app --host 0.0.0.0 --port 8000" \
               --name "backend" \
               --interpreter $APP_DIR/backend/venv/bin/python
 
+            # Save the process list
             pm2 save
 
             echo "========================================="
